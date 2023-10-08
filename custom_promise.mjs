@@ -25,15 +25,19 @@ export function myPromise(executor) {
 
     return {
         then: (onResolve) => {
-           then_registry.push(onResolve);
+           
+           return myPromise((resolve, reject) => {
+                then_registry.push(onResolve);
 
-           setTimeout(() => {
-            if(state === "fulfilled" && then_registry.length !== 0) {
-                resolve(resolve_val);
-            }
-            return 
-           }, 0)
-
+                setTimeout(() => {
+                    if(state === "fulfilled" && then_registry.length !== 0) {
+                        resolve(resolve_val);
+                    }
+                    return 
+                }, 0)
+                
+                // return 
+            })
            
         },
         catch: (onError) => {
