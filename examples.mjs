@@ -1,7 +1,7 @@
 import {myPromise} from "./custom_promise.mjs";
 
 // demonstration example 1
-let prom = new Promise((resolve, reject) => {
+let prom = new myPromise((resolve, reject) => {
     console.log("in promise");
     resolve("in setTime");
 });
